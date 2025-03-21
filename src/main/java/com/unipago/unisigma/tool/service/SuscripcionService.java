@@ -23,9 +23,8 @@ public class SuscripcionService {
         this.fakeData = FakeDataUtil.optenerData();
     }
 
-    public SuscripcionNotificacion buscarPorId (Integer id){
-        fakeData =suscripcionRepository.findAll();
-        return fakeData.get(id);
+    public List<SuscripcionNotificacion> buscarSucripciones (){
+        return suscripcionRepository.findAll();
     }
 
 }

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/suscripcion/notificacion")
 public class SuscripcionControllers {
@@ -27,11 +29,9 @@ public class SuscripcionControllers {
 
 	@RequestMapping(produces= MediaType.APPLICATION_JSON_VALUE,  method = RequestMethod.GET)
 	@ResponseBody
-	public SuscripcionNotificacion findById() {
+	public List<SuscripcionNotificacion> findAll() {
 		log.info("Entering findById");
-		SuscripcionNotificacion sus = suscripcionService.buscarPorId(2);
-
-		return sus;
+		return suscripcionService.buscarSucripciones();
 	}
 
 
