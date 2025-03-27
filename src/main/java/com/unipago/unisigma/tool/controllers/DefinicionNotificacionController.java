@@ -1,12 +1,15 @@
 package com.unipago.unisigma.tool.controllers;
 
 import com.unipago.unisigma.tool.domain.DefinicionNotificacion;
+import com.unipago.unisigma.tool.domain.ParametroDefinicionNotificacion;
 import com.unipago.unisigma.tool.service.DefinicionNotificacionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/definicion/notificacion")
@@ -33,7 +36,12 @@ public class DefinicionNotificacionController {
     }
 
 
-
+    @RequestMapping(value = "/parametro", produces= MediaType.APPLICATION_JSON_VALUE,  method = RequestMethod.GET)
+    @ResponseBody
+    public List<ParametroDefinicionNotificacion> findParametrosDefinicionNotificacion(@RequestParam(value = "definicionNotificacionId") Integer definicionNotificacionId) {
+        log.info("Entering findDefinicionNotificacion");
+        return definicionNotificacionService.findParametrosDefinicionNotificacion(definicionNotificacionId);
+    }
 
 
 }

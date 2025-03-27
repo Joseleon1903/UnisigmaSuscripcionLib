@@ -27,4 +27,8 @@ public class SuscripcionService {
         return suscripcionRepository.findAll();
     }
 
+    public SuscripcionNotificacion buscarSucripcionPorEntidadAndServicio (Integer entidadId, Integer serrvicioId){
+        return suscripcionRepository.buscarSucripcionPorEntidadAndServicio(entidadId, serrvicioId);
+    }
+
 }

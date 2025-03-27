@@ -36,4 +36,37 @@ public class QueryUtil {
             "\t\t\t\t\t\t\tOR (sn.tipo_Entidad_Id = :tipoEntidadId AND sn.tipo_Configuracion = 2) \n" +
             "\t\t\t\t\t\t\tOR sn.tipo_Configuracion = 3) \n" +
             "\t\t\t\t\t\t\tORDER BY sn.tipo_Configuracion ASC";
+
+    public static String BUSCAR_ENTIDAD_POR_ID ="select ENTIDAD_ID,\n" +
+            "TIPO_ENTIDAD_ID,\n" +
+            "CLAVE_ENTIDAD,\n" +
+            "SIGLA,\n" +
+            "DESCRIPCION,\n" +
+            "REGIMEN_ID,\n" +
+            "PARTICIPA_AFILIACION_AUT,\n" +
+            "RNC,\n" +
+            "ENTIDAD_SUPERVISORA_ID,\n" +
+            "ESTADO,\n" +
+            "TIPO_FONDO_ID,\n" +
+            "TIPO_EMPLEADOR_ID,\n" +
+            "TIPO_ADMINISTRACION_ID,\n" +
+            "TIPO_ESTANCIA_INFANTIL_ID,\n" +
+            "MUNICIPIO_ID,\n" +
+            "GRUPO_ECONOMICO_ID,\n" +
+            "APLICA_FACTURACION,\n" +
+            "FECHA_INSCRIPCION\n" +
+            "from ENTIDAD where ENTIDAD_ID = :entidadId";
+
+    public static String BUSCAR_TIPO_NOTIFCACION_POR_ID ="select TIPO_NOTIFICACION_ID,\n" +
+            "DESCRIPCION,\n" +
+            "ESTADO\n" +
+            "from TIPO_NOTIFICACION where TIPO_NOTIFICACION_ID =:tipoNotificacionId";
+
+    public static String BUSCAR_SUSCRIPCION_NOTIFICACION_ENTIDAD_SERVICIO ="SELECT * FROM Suscripcion_Notificacion s WHERE s.entidad_Id = :entidadId and s.servicio_Id = :servicioId";
+
+    public static String BUSCAR_PARAMETRO_DEFINICION_NOTIFICACION = "SELECT PARA.PARAMETRO_DEFINICION_NOT_ID, PARA.DESCRIPCION, PARA.TIPO_DATO, PARA.VALOR_DEFECTO, PARA.ESTADO\n" +
+            "FROM SIGMA_UTILS.DEF_NOT_PARAM_DEF_NOT DEF\n" +
+            "LEFT JOIN  SIGMA_UTILS.PARAMETRO_DEFINICION_NOT PARA ON PARA.PARAMETRO_DEFINICION_NOT_ID = DEF.PARAMETRO_DEFINICION_NOT_ID\n" +
+            "WHERE DEF.DEFINICION_NOTIFICACION_ID = :definicionNotificacionId";
+
 }
