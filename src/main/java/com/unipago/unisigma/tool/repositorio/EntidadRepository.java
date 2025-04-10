@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class EntidadRepository {
 
@@ -35,6 +37,14 @@ public class EntidadRepository {
     }
 
 
-
-
+    public List<Entidad> findAll() {
+        log.info("Entering findEntidadById");
+        log.info("Ejecutando query: "+ QueryUtil.BUSCAR_ENTIDADES);
+        List<Entidad> result = jdbcTemplate.query(
+                QueryUtil.BUSCAR_ENTIDADES,
+                new EntidadMapper().entidadRowMapper());
+        log.info("query result: "+ result);
+        log.info("terminando ejecucion query");
+        return result;
+    }
 }

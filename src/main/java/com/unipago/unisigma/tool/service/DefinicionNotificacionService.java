@@ -20,14 +20,10 @@ public class DefinicionNotificacionService {
 
     public DefinicionNotificacion findDefinicionNotificacion(Integer servicioId, Short tipoNotificacion,
                                                              Integer entidadId, Short tipoEntidadId){
-
-
         return suscripcionRepository.findDefinicionNotificacion(servicioId, tipoNotificacion, entidadId, tipoEntidadId);
     }
 
     public List<ParametroDefinicionNotificacion> findParametrosDefinicionNotificacion(Integer definicionId){
-
-
         return suscripcionRepository.findParametroDefinicionAll(definicionId);
     }
 

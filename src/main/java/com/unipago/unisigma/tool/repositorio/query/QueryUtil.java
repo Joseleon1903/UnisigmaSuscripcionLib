@@ -22,6 +22,24 @@ public class QueryUtil {
             "FACTURABLE\n" +
             "FROM SERVICIO_SISTEMA ";
 
+    public static String BUSCAR_SERVICIO_SISTEMA_POR_ID ="SELECT  \n" +
+            "SERVICIO_ID,\n" +
+            "DESCRIPCION,\n" +
+            "FECHA_INICIO_DISPONIBILIDAD,\n" +
+            "PROCESO_SUBPROCESO_ID,\n" +
+            "REGIMEN_ID,\n" +
+            "SEGURO_ID,\n" +
+            "NOMBRE_COLA,\n" +
+            "HORARIO_REQUERIDO,\n" +
+            "TIPO_SERVICIO_ID,\n" +
+            "ORDEN_EJECUCION,\n" +
+            "CLAVE_PROCESO_ARCHIVO,\n" +
+            "CLAVE_SUBPROCESO_ARCHIVO,\n" +
+            "ESTADO,\n" +
+            "SERVICIO_PADRE_ID,\n" +
+            "FACTURABLE\n" +
+            " FROM SERVICIO_SISTEMA WHERE SERVICIO_ID = :servicioId";
+
     public static String BUSCAR_DEFINICION_NITIFICACION= "SELECT d.DEFINICION_NOTIFICACION_ID,\n" +
             "d.TIPO_NOTIFICACION_ID,\n" +
             "D.ASUNTO,\n" +
@@ -56,6 +74,26 @@ public class QueryUtil {
             "APLICA_FACTURACION,\n" +
             "FECHA_INSCRIPCION\n" +
             "from ENTIDAD where ENTIDAD_ID = :entidadId";
+
+    public static String BUSCAR_ENTIDADES ="select ENTIDAD_ID,\n" +
+            "TIPO_ENTIDAD_ID,\n" +
+            "CLAVE_ENTIDAD,\n" +
+            "SIGLA,\n" +
+            "DESCRIPCION,\n" +
+            "REGIMEN_ID,\n" +
+            "PARTICIPA_AFILIACION_AUT,\n" +
+            "RNC,\n" +
+            "ENTIDAD_SUPERVISORA_ID,\n" +
+            "ESTADO,\n" +
+            "TIPO_FONDO_ID,\n" +
+            "TIPO_EMPLEADOR_ID,\n" +
+            "TIPO_ADMINISTRACION_ID,\n" +
+            "TIPO_ESTANCIA_INFANTIL_ID,\n" +
+            "MUNICIPIO_ID,\n" +
+            "GRUPO_ECONOMICO_ID,\n" +
+            "APLICA_FACTURACION,\n" +
+            "FECHA_INSCRIPCION\n" +
+            "from ENTIDAD ";
 
     public static String BUSCAR_TIPO_NOTIFCACION_POR_ID ="select TIPO_NOTIFICACION_ID,\n" +
             "DESCRIPCION,\n" +

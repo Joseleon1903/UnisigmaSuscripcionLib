@@ -9,9 +9,10 @@ public class ParametroDefinicionNotificacionMapper {
         return (rs, rowNum) -> new ParametroDefinicionNotificacion(
                 rs.getString("PARAMETRO_DEFINICION_NOT_ID"),
                 rs.getString("DESCRIPCION"),
+                rs.getString("ESTADO"),
                 rs.getString("TIPO_DATO"),
-                rs.getString("VALOR_DEFECTO"),
-                rs.getString("ESTADO")
+                rs.getString("VALOR_DEFECTO")
+
         );
     }
 

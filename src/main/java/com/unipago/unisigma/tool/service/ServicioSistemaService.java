@@ -25,4 +25,7 @@ public class ServicioSistemaService {
     }
 
 
+    public ServicioSistema buscarServiciosSistemaPorId(Integer servicioId) {
+        return servicioSistemaRepository.findById(servicioId);
+    }
 }
