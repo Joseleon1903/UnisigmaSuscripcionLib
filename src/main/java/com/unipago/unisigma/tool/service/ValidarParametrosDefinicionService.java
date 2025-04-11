@@ -2,36 +2,62 @@ package com.unipago.unisigma.tool.service;
 
 import com.unipago.unisigma.tool.domain.ParametroDefinicionNotificacion;
 import com.unipago.unisigma.tool.domain.ParametroEjecucionNotificacion;
+import com.unipago.unisigma.tool.repositorio.SuscripcionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ValidarParametrosDefinicionService {
 
+    private final SuscripcionRepository suscripcionRepository;
 
-    public void validar(List<ParametroDefinicionNotificacion> parametrosDefinicion, List<ParametroEjecucionNotificacion> parametrosEjecucionNotificacion){
+    @Autowired
+    public ValidarParametrosDefinicionService(SuscripcionRepository suscripcionRepository) {
+        this.suscripcionRepository = suscripcionRepository;
+    }
+
+    public void validaParametrosServicios(Integer servicioId, List<ParametroEjecucionNotificacion> parametrosEjecucionNotificacion){
+
+
+        //buscar parametro definicion servicio
+
+
+    }
+
+    public boolean validar(List<ParametroDefinicionNotificacion> parametrosDefinicion,
+                           List<ParametroEjecucionNotificacion> parametrosEjecucionNotificacion) {
 
         System.out.println("entering ValidarParametrosDefinicionService validar...");
 
+        if (parametrosDefinicion.size() != parametrosEjecucionNotificacion.size()) {
+            System.out.println("entering ValidarParametrosDefinicionService validar...");
+            return false;
+        }
 
-        for(ParametroDefinicionNotificacion parametroDefinicion: parametrosDefinicion){
+        for (ParametroDefinicionNotificacion parametroDefinicion : parametrosDefinicion) {
             System.out.println("Verificando si el parametro: " + parametroDefinicion + " fue proporcionado...");
             System.out.println("Verificando solicitud size: " + parametrosEjecucionNotificacion.size());
-            int posicionParametro = parametrosEjecucionNotificacion.indexOf(parametroDefinicion.getParametroId());
 
-//            System.out.println("Parametro: " + parametroDefinicion.getParametroDefinicionNotificacionId());
-//            String placeHolder = parametroDefinicion.getParametroDefinicionNotificacionId();
-//            System.out.println("Obteniendo el valor por defecto...");
-//            String valor = parametroDefinicion.getValorDefecto();
-//            System.out.println("Valor por defecto: " + valor);
-//            System.out.println("posicionParametro " + posicionParametro);
-//
-//            if(!(posicionParametro < 0)){
-//                System.out.println("Parametro proporcionado, tomando el valor proporcionado...");
-//                valor = ValidationUtil.validateNullOrEmtpyStrings(context.getParametrosGeneracionSolicitud().get(posicionParametro).getValor()) ? valor : context.getParametrosGeneracionSolicitud().get(posicionParametro).getValor();
-//            }else{
-//                System.out.println("Parametro no fue proporcionado!");
-//                motivoId = ParametrosUSConstantes.Motivos.EXISTEN_PARAMETROS_DE_DEFINICION_NOTIFIACION_QUE_NO_FUERON_PROPORCIONADOS;
-//            }
+            System.out.println("Obteniendo el valor por defecto...");
+
+            String valor = parametroDefinicion.getValorDefecto();
+            System.out.println("Valor por defecto: " + valor);
+
+            System.out.println("validando parametro ejecucion ");
+            boolean existeParametroEje = false;
+            for (ParametroEjecucionNotificacion pEje : parametrosEjecucionNotificacion) {
+                if (pEje.getParametroId().equals(parametroDefinicion.getParametroId())) {
+                    existeParametroEje = true;
+                }
+            }
+
+            System.out.println("validando existeParametroEje: " + existeParametroEje);
+            if (!existeParametroEje) {
+                return false;
+            }
+
 //
 //            System.out.println("Validando que se poseea valor para el parametro Definicion...");
 //            if(!ValidationUtil.validateNullOrEmtpyStrings(valor)){
@@ -72,7 +98,7 @@ public class ValidarParametrosDefinicionService {
 //        return motivoId == 0;
 
 
-
+        return true;
     }
 
 

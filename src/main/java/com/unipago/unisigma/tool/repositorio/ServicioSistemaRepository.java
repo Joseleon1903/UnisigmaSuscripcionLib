@@ -1,8 +1,6 @@
 package com.unipago.unisigma.tool.repositorio;
 
-import com.unipago.unisigma.tool.domain.Entidad;
 import com.unipago.unisigma.tool.domain.ServicioSistema;
-import com.unipago.unisigma.tool.mapper.EntidadMapper;
 import com.unipago.unisigma.tool.mapper.ServicioSistemaMapper;
 import com.unipago.unisigma.tool.repositorio.query.QueryUtil;
 import org.slf4j.Logger;
@@ -54,7 +52,6 @@ public class ServicioSistemaRepository {
 
 
     public ServicioSistema findById(Integer servicioId) {
-
         log.info("Entering findEntidadById");
         log.info("Ejecutando query: "+ QueryUtil.BUSCAR_SERVICIO_SISTEMA_POR_ID);
 
@@ -65,6 +62,5 @@ public class ServicioSistemaRepository {
         log.info("query result: "+ result);
         log.info("terminando ejecucion query");
         return result;
-
     }
 }
