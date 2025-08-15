@@ -10,7 +10,6 @@ public class TipoNotificacionMapper {
                 rs.getShort("TIPO_NOTIFICACION_ID"),
                 rs.getString("DESCRIPCION"),
                 rs.getString("ESTADO")
-
         );
     }
 }

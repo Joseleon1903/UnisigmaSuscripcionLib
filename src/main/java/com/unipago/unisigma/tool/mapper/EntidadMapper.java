@@ -6,8 +6,6 @@ import org.springframework.jdbc.core.RowMapper;
 
 public class EntidadMapper {
 
-
-
     public RowMapper<Entidad> entidadRowMapper() {
         return (rs, rowNum) -> new Entidad(
                 rs.getInt("ENTIDAD_ID"),
@@ -24,8 +22,3 @@ public class EntidadMapper {
         );
     }
 }
-
-//PARTICIPA_AFILIACION_AUT,
-//RNC,
-//ENTIDAD_SUPERVISORA_ID,
-//ESTADO,

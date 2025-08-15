@@ -23,7 +23,7 @@ public class SuscripcionService {
         this.fakeData = FakeDataUtil.optenerData();
     }
 
-    public List<SuscripcionNotificacion> buscarSucripciones (){
+    public List<SuscripcionNotificacion> buscarSucripciones(){
         return suscripcionRepository.findAll();
     }
 

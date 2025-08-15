@@ -19,8 +19,6 @@ public class ValidarParametrosDefinicionService {
     }
 
     public void validaParametrosServicios(Integer servicioId, List<ParametroEjecucionNotificacion> parametrosEjecucionNotificacion){
-
-
         //buscar parametro definicion servicio
 
 
